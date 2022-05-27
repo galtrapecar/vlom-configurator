@@ -711,13 +711,10 @@ function init() {
                     kluka.scale.set( 1, 1, 1 );
                     kluka2.scale.set( 1, 1, 1 );
 
-                    console.log('Deleted kovinc');
-
                     if (selectedKluka == 'toulon') {
                         klucnot.scale.set( 0, 0, 0 );
                         kluczun.scale.set( 0, 0, 0 );
                     } else {
-                        console.log('Kluka is not Toulon');
                         klucnot.scale.set( 1, 1, 1 );
                         kluczun.scale.set( 1, 1, 1 );
                     }
