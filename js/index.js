@@ -711,8 +711,6 @@ function init() {
                     kluka.scale.set( 1, 1, 1 );
                     kluka2.scale.set( 1, 1, 1 );
 
-                    // if Toulon
-
                     if (selectedKluka == 'toulon') {
                         klucnot.scale.set( 0, 0, 0 );
                         kluczun.scale.set( 0, 0, 0 );
