@@ -100,6 +100,7 @@ function pre_init() {
             request.onsuccess = db_onsuccess_retrieve;
             request.onerror = db_onerror;
             request.onupgradeneeded = db_onupgradeneeded;
+            return;
         }
 
         console.log('Indexeddb opening mode unspecified.');
