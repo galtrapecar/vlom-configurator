@@ -1,8 +1,5 @@
 import * as THREE from './node_modules/three/build/three.module.js';
 import {GLTFLoader} from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import {RGBELoader} from './node_modules/three/examples/jsm/loaders/RGBELoader.js';
-
-import Stats from './stats.js-master/build/stats.module.js';
 
 let global = {loadStatus: 0}
 
@@ -383,25 +380,6 @@ function init() {
                 $('.breznads').on( 'click tap', _ToggleNadsListener );
                 $('.znads').on( 'click tap', _CloseNadsListener );
 
-                /* function listChildren(children) {
-                    let child;
-                    for (let i = 0; i < children.length; i++) {
-                        child = children[i];
-                
-                        // Calls this function again if the child has children
-                        if (child.children) {
-                            listChildren(child.children);
-                            console.log(child);
-                        }
-                        // Logs if this child last in recursion
-                        else {
-                            console.log('Reached bottom with: ', child);
-                        }
-                    }
-                }
-                
-                window.onload = listChildren(scene.children); */
-
                 narvik = scene.getObjectByName( 'narvik' );
                 narvik2 = scene.getObjectByName( 'narvik2' );
 
@@ -732,9 +710,17 @@ function init() {
 
                     kluka.scale.set( 1, 1, 1 );
                     kluka2.scale.set( 1, 1, 1 );
-            
-                    klucnot.scale.set( 1, 1, 1 );
-                    kluczun.scale.set( 1, 1, 1 );
+
+                    console.log('Deleted kovinc');
+
+                    if (selectedKluka == 'toulon') {
+                        klucnot.scale.set( 0, 0, 0 );
+                        kluczun.scale.set( 0, 0, 0 );
+                    } else {
+                        console.log('Kluka is not Toulon');
+                        klucnot.scale.set( 1, 1, 1 );
+                        kluczun.scale.set( 1, 1, 1 );
+                    }
 
                     let kukalozun2 = scene.getObjectByName( 'kukalozun' );
                     kukalozun2.scale.set( 1, 1, 1 );
@@ -1844,17 +1830,6 @@ function init() {
 
         },
         function (xhr) {
-
-            // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-
-            // global.loadStatus += xhr.loaded / xhr.total;
-
-            // if ( xhr.loaded == xhr.total ) {
-
-            //     console.log("%c Wall Model Loading Finished", "color: aqua");
-            //     loadingFinished++;
-
-            // }
     
         },
         function (error) {
@@ -1882,8 +1857,6 @@ function init() {
 
         },
         function (xhr) {
-
-            // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
     
         },
         function (error) {
@@ -1909,8 +1882,6 @@ function init() {
 
         },
         function (xhr) {
-
-            // console.log(( xhr.loaded / xhr.total * 100 ) + '% loaded');
     
         },
         function (error) {
@@ -1967,14 +1938,6 @@ function init() {
     pointLight5.position.y = 2;
     scene.add( pointLight, pointLight2, pointLight3, pointLight4, pointLight5, pointLight6, pointLight7 );
 
-    // HELPERS
-
-    /* const size = 100;
-    const divisions = 100;
-
-    const gridHelper = new THREE.GridHelper( size, divisions );
-    scene.add( gridHelper ); */
-
     // CAMERA POSITION
 
     camera.position.x = -2.05;
@@ -1983,10 +1946,6 @@ function init() {
     camera.lookAt( 0, .1, 0 );
 
     // STATS
-
-    /* stats = new Stats();
-    stats.showPanel( 0 );
-    document.body.appendChild( stats.dom ); */
 
     console.log( renderer.info );
 
@@ -2005,11 +1964,7 @@ function animate() {
 
     if ( mixer2 ) mixer2.update( delta );
 
-    //stats.update();
-
-    //stats.begin();
     renderer.render( scene, camera );
-    //stats.end();
 }
 
 function raycast ( e ) {
@@ -2082,36 +2037,4 @@ function load_screen_finish() {
     setTimeout(() => {
         load.style.display = 'none'
     }, 5000);
-}
-
-// let loadScreen = setInterval( LoadScreen, 100 );
- 
-function LoadScreen() {
-
-    loadText.innerHTML = Math.round( global.loadStatus ) + '% Pripravljeno';
-
-    loadlogo.style.clipPath = 'polygon(0 0, ' + Math.round( global.loadStatus ) + '% 0, ' + Math.round( global.loadStatus ) + '% 100%, 0% 100%)';
-
-    if ( Math.round( global.loadStatus ) > 100 ) global.loadStatus = 99;
-
-    if ( loadingFinished == 2 ) {
-
-        loadText.innerHTML = '99% Naloženo';
-     
-        loadlogo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-        
-        setTimeout( clearinterval, 2800 );
-
-        function clearinterval() {
-
-            clearInterval( loadScreen );
-            loadText.innerHTML = '100% Naloženo';
-            setTimeout(() => {
-                load.style.display = 'none'
-            }, 200);
-
-        }
-
-    } 
-
 }
