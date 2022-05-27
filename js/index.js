@@ -180,7 +180,7 @@ function pre_init() {
 
     async function db_fetch_file() {
         let promise = new Promise((resolve, reject) => {
-            let url = 'http://dev.trapecar.com/conf.vlom.si/gltf/kovinc-final.glb';
+            let url = './gltf/kovinc-final.glb';
             const xhr = new XMLHttpRequest();
             xhr.open("GET", url);
             xhr.responseType = "blob";
