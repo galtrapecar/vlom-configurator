@@ -3,32 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLOM - Konfigurator</title>
+    <!-- <meta name="viewport" content="initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, maximum-scale=1.0, user-scalable=0">
+    <title>Mobile</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="vlom-spinning-logo-wrapper">
-        <div class="vlom-spinning-logo">
-            <div class="vlom-spinning-logo-front"><img src="./svg/logo.svg" alt=""></div>
-            <div class="vlom-spinning-logo-back"></div>
-            <div class="vlom-spinning-logo-top"></div>
-            <div class="vlom-spinning-logo-bottom"></div>
-            <div class="vlom-spinning-logo-left"></div>
-            <div class="vlom-spinning-logo-right"></div>
+    
+    <div class="preload" style="display: none;">
+        <img src="./img/belavrata.jpg" alt="">
+        <img src="./img/belavrataback.jpg" alt="">
+        <img src="./img/belavratakovinc.jpg" alt="">
+        <img src="./img/belavratakovincback.jpg" alt="">
+        <img src="./img/belavratanads.jpg" alt="">
+        <img src="./img/belavratanadsback.jpg" alt="">
+
+        <img src="./img/melodyvrata.jpg" alt="">
+        <img src="./img/melodyvrataback.jpg" alt="">
+        <img src="./img/melodyvratakovinc.jpg" alt="">
+        <img src="./img/melodyvratakovincback.jpg" alt="">
+        <img src="./img/melodyvratanads.jpg" alt="">
+        <img src="./img/melodyvratanadsback.jpg" alt="">
+
+        <img src="./img/hrastvrata.jpg" alt="">
+        <img src="./img/hrastvrataback.jpg" alt="">
+        <img src="./img/hrastvratakovinc.jpg" alt="">
+        <img src="./img/hrastvratakovincback.jpg" alt="">
+        <img src="./img/hrastvratanads.jpg" alt="">
+        <img src="./img/hrastvratanadsback.jpg" alt="">
+
+        <img src="./img/bukvavrata.jpg" alt="">
+        <img src="./img/bukvavrataback.jpg" alt="">
+        <img src="./img/bukvavratakovinc.jpg" alt="">
+        <img src="./img/bukvavratakovincback.jpg" alt="">
+        <img src="./img/bukvavratanads.jpg" alt="">
+        <img src="./img/bukvavratanadsback.jpg" alt="">
+
+        <img src="./img/cesnavrata.jpg" alt="">
+        <img src="./img/cesnavrataback.jpg" alt="">
+        <img src="./img/cesnavratakovinc.jpg" alt="">
+        <img src="./img/cesnavratakovincback.jpg" alt="">
+        <img src="./img/cesnavratanads.jpg" alt="">
+        <img src="./img/cesnavratanadsback.jpg" alt="">
+
+        <img src="./img/mahagonivrata.jpg" alt="">
+        <img src="./img/mahagonivrataback.jpg" alt="">
+        <img src="./img/mahagonivratakovinc.jpg" alt="">
+        <img src="./img/mahagonivratakovincback.jpg" alt="">
+        <img src="./img/mahagonivratanads.jpg" alt="">
+        <img src="./img/mahagonivratanadsback.jpg" alt="">
+
+        <img src="./img/vengevrata.jpg" alt="">
+        <img src="./img/vengevrataback.jpg" alt="">
+        <img src="./img/vengevratakovinc.jpg" alt="">
+        <img src="./img/vengevratakovincback.jpg" alt="">
+        <img src="./img/vengevratanads.jpg" alt="">
+        <img src="./img/vengevratanadsback.jpg" alt="">
+    </div>
+
+    <section id="sect">
+        <div id="sect2"></div>
+        <div id="sect3"></div>
+
+        <div class="logo" id="logo"><img src="./img/logo.svg" alt=""><p class="creds">&#169;2021 VLOM d.o.o.</div>
+
+        <div class="menubtn" id="menubtn">
+            <div class="menuinner">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
-    </div>
 
-    <div class="hook">
-        <h1>PRIHAJA KMALU</h1>
-        <p>Med čakanjem na mobilno verzijo konfiguratorja si lahko ogledate polno <br> verzijo na računalinku.</p>
-    </div>
+        <div class="rotatebtn" id="rotatebtn">
+            <img src="./img/refresh.svg" alt="">
+        </div>
 
-    <div class="back_button" onclick="window.location.assign('https://www.protivlomna-vrata.si/domov.html')">Nazaj</div>
+        <div class="breznads" id="breznads" onclick="ChangeNads( true ); document.getElementById('logo').style.opacity = '.1'; document.getElementById('brezpodboja').style.display = 'none'; document.getElementById('podboj').style.display = 'flex'; document.getElementById('znads').style.display = 'flex'; this.style.display = 'none'"><img src="./img/breznads.svg" alt=""></div>
+        <div class="znads" id="znads" onclick="ChangeNads( false ); document.getElementById('logo').style.opacity = '1'; document.getElementById('brezpodboja').style.display = 'none'; document.getElementById('podboj').style.display = 'flex'; document.getElementById('breznads').style.display = 'flex'; this.style.display = 'none'"><img src="./img/znads.svg" alt=""></div>
+
+        <div class="podboj" id="podboj" onclick="ChangePodboj( true ); document.getElementById('znads').style.display = 'none'; document.getElementById('breznads').style.display = 'flex'; document.getElementById('brezpodboja').style.display = 'flex'; this.style.display = 'none'"><img src="./img/podboj.svg" alt=""></div>
+        <div class="brezpodboja" id="brezpodboja" onclick="ChangePodboj( false ); document.getElementById('znads').style.display = 'none'; document.getElementById('breznads').style.display = 'flex'; document.getElementById('podboj').style.display = 'flex'; this.style.display = 'none'"><img src="./img/brezpodboja.svg" alt=""></div>
+
+        <div class="menu" id="menu">
+
+            <div class="barveMenu" id="barveMenu">
+                <h1>BARVE</h1>
+
+                <div class="color_cards_wrap">
+                    <div class="color_card" id="bela" onclick="ChangeColor( this )">
+                        <div class="img"><img class="bela" src="./img/bela.jpg" alt=""></div>
+                        <p><span>1570 BS</span><br> Bela Diamond</p>
+                    </div>
+                    <div class="color_card" id="melody" onclick="ChangeColor( this )">
+                        <div class="img"><img class="hrast-melody" src="./img/hrast-melody.jpg" alt=""></div>
+                        <p><span>37745 AT</span><br> Hrast Melody</p>
+                    </div>
+                    <div class="color_card" id="hrast" onclick="ChangeColor( this )">
+                        <div class="img"><img class="hrast" src="./img/hrast.jpg" alt=""></div>
+                        <p><span>37307 AN</span><br> Hrast Natural</p>
+                    </div>
+                    <div class="color_card" id="bukva" onclick="ChangeColor( this )">
+                        <div class="img"><img class="bukva" src="./img/bukva.jpg" alt=""></div>
+                        <p><span>3381 AN</span><br> Bukev</p>
+                    </div>
+                    <div class="color_card" id="cesna" onclick="ChangeColor( this )">
+                        <div class="img"><img class="cesna" src="./img/cesna.jpg" alt=""></div>
+                        <p><span>39345 BS</span><br> Češnja Acero</p>
+                    </div>
+                    <div class="color_card" id="mahagoni" onclick="ChangeColor( this )">
+                        <div class="img"><img class="mahagoni" src="./img/mahagoni.jpg" alt=""></div>
+                        <p><span>37489 BS</span><br> Mahagonij</p>
+                    </div>
+                    <div class="color_card" id="venge" onclick="ChangeColor( this )">
+                        <div class="img"><img class="venge" src="./img/venge.jpg" alt=""></div>
+                        <p><span>37710 BS</span><br> Wenge Gondou</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="klukeMenu" id="klukeMenu">
+                <h1>KLJUKE</h1>
+
+                <div class="kluke_cards_wrap">
+                    <div class="kluka_card narvik" onclick="ChangeKluka( this )">
+                        <img src="./img/narvik.png" alt="">
+                        <p>Narvik</p>
+                    </div>
+                    <div class="kluka_card modelw" onclick="ChangeKluka( this )">
+                        <img src="./img/modelw.png" alt="">
+                        <p>Model W</p>
+                    </div>
+                    <div class="kluka_card bremen" onclick="ChangeKluka( this )">
+                        <img src="./img/bari.png" alt="">
+                        <p>Bremen</p>
+                    </div>
+                    <div class="kluka_card lucca" onclick="ChangeKluka( this )">
+                        <img src="./img/lucca.png" alt="">
+                        <p>Lecce</p>
+                    </div>
+                    <div class="kluka_card verona" onclick="ChangeKluka( this )">
+                        <img src="./img/tokyo.png" alt="">
+                        <p>Verona</p>
+                    </div>
+                    <div class="kluka_card toulon" onclick="ChangeKluka( this )">
+                        <img src="./img/toulon.png" alt="">
+                        <p>Toulon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kukalaMenu" id="kukalaMenu">
+                <h1>KUKALA</h1>
+
+                <div class="kukala_cards_wrap">
+                    <div class="kukala_card kukalo" onclick="ChangeKukalo( 'navadno' )">
+                        <img src="./img/kukalo.jpg" alt="">
+                        <p>Običajno</p>
+                    </div>
+                    <div class="kukala_card digkuk">
+                        <img src="./img/digkuk.jpg" onclick="ChangeKukalo( 'digitalno' )" alt="">
+                        <p>Digitalno</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menubtn" id="close">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let section = document.getElementById('sect'),
+            section2 = document.getElementById('sect2'),
+            section3 = document.getElementById('sect3'),
+            menu = document.getElementById('menu'),
+            menubtn = document.getElementById('menubtn'),
+            rotatebtn = document.getElementById('rotatebtn'),
+            closebtn = document.getElementById('close'),
+            znads = document.getElementById('znads'),
+            breznads = document.getElementById('breznads'),
+            podboj = document.getElementById('podboj'),
+            brezpodboja = document.getElementById('brezpodboja'),
+            barveMenu = document.getElementById('barveMenu'),
+            klukeMenu = document.getElementById('klukeMenu'),
+            kukalaMenu = document.getElementById('kukalaMenu'),
+            barva = document.getElementsByClassName('color_card');
+
+        let IS_IOS = function() {
+
+            return [
+                'iPad Simulator',
+                'iPhone Simulator',
+                'iPod Simulator',
+                'iPad',
+                'iPhone',
+                'iPod'
+            ].includes( navigator.platform );
+            
+        }
+
+        class Vrata {
+
+            constructor( vrataDisplay, klukaDisplay, kukaloDisplay ) {
+                this.barva = 'bela';
+                this.kluka = 'narvik';
+                this.kukalo = 'navadno';
+                this.nads = false;
+                this.kovinc = false;
+                this.view = 0;
+                this.vrataDisplay = vrataDisplay;
+                this.klukaDisplay = klukaDisplay;
+                this.kukaloDisplay = kukaloDisplay;
+            }
+
+            get Barva() {
+
+                return this.getInfo( 'barva' );
+
+            }
+
+            get Kluka() {
+
+                return this.getInfo( 'kluka' );
+
+            }
+
+            get Kukalo() {
+
+                return this.getInfo( 'kukalo' );
+
+            }
+
+            getInfo( e ) {
+
+                if ( e === 'barva' ) return this.barva;
+                if ( e === 'kluka' ) return this.kluka;
+                if ( e === 'kukalo' ) return this.kukalo;
+
+            }
+
+            changeView( e ) {
+
+                this.view = e;
+
+                if ( e === 1 ) {
+
+                    if ( !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrataback.jpg)';
+                    if ( this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanadsback.jpg)';
+                    if ( this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovincback.jpg)';
+                    if ( this.kukalo === 'digitalno' ) this.kukaloDisplay.style.opacity = '1';
+                    this.klukaDisplay.style.transform = 'rotateY(180deg)';
+
+                }
+
+                if ( e === 0 ) {
+
+                    if ( !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrata.jpg)';
+                    if ( this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanads.jpg)';
+                    if ( this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovinc.jpg)';
+                    this.kukaloDisplay.style.opacity = '0';
+                    this.klukaDisplay.style.transform = 'none';
+
+                }
+
+            }
+
+            changeBarva( e ) {
+
+                this.barva = e;
+                
+                if ( this.view === 1 && this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanadsback.jpg)';
+                if ( this.view === 0 && this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanads.jpg)';
+
+                if ( this.view === 1 && !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrataback.jpg)';
+                if ( this.view === 0 && !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrata.jpg)';
+
+                if ( this.view === 1 && this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovincback.jpg)';
+                if ( this.view === 0 && this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovinc.jpg)';
+
+            }
+
+            changeKluka( e ) {
+
+                this.kluka = e;
+
+                this.klukaDisplay.style.backgroundImage = 'url(./img/' + this.kluka + 'vrata.png)';
+
+            }
+
+            changeNads( e ) {
+
+                this.nads = e;
+                this.kovinc = false;
+
+                if ( this.view === 1 && this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanadsback.jpg)';
+                if ( this.view === 0 && this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratanads.jpg)';
+
+                if ( this.view === 1 && !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrataback.jpg)';
+                if ( this.view === 0 && !this.nads ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrata.jpg)';
+
+            }
+
+            changePodboj( e ) {
+
+                this.kovinc = e;
+                this.nads = false;
+
+                if ( this.view === 1 && this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovincback.jpg)';
+                if ( this.view === 0 && this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vratakovinc.jpg)';
+
+                if ( this.view === 1 && !this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrataback.jpg)';
+                if ( this.view === 0 && !this.kovinc ) this.vrataDisplay.style.backgroundImage = 'url(./img/' + this.barva + 'vrata.jpg)';
+
+            }
+
+            changeKukalo( e ) {
+
+                this.kukalo = e;
+
+                if ( this.kukalo === 'digitalno' && this.view === 1 ) this.kukaloDisplay.style.opacity = '1';
+                if ( this.kukalo === 'navadno' ) this.kukaloDisplay.style.opacity = '0';
+
+            }
+
+        }
+
+
+        let vrata = new Vrata( section, section2, section3 );
+
+        if ( IS_IOS() ) {
+
+            section.style.height = window.innerHeight + 'px';
+            section2.style.height = window.innerHeight + 'px';
+            section3.style.height = window.innerHeight + 'px';
+            menu.style.height = window.innerHeight + 'px';
+            
+            barveMenu.style.height = window.innerHeight / 3 + 'px';
+            klukeMenu.style.height = window.innerHeight / 3 + 'px';
+            kukalaMenu.style.height = window.innerHeight / 3 + 'px';
+
+        } else {
+
+            section.style.height = window.outerHeight + 'px';
+            section2.style.height = window.outerHeight + 'px';
+            section3.style.height = window.outerHeight + 'px';
+            menu.style.height = window.outerHeight + 'px';
+            
+            barveMenu.style.height = window.outerHeight / 4 + 'px';
+            klukeMenu.style.height = window.outerHeight / 4 + 'px';
+            kukalaMenu.style.height = window.outerHeight / 4 + 'px';
+
+            section.style.backgroundPosition = 'center center';
+            section2.style.backgroundPosition = 'center center';
+            section3.style.backgroundPosition = 'center center';
+
+        }
+
+        menubtn.addEventListener( 'click', () => {
+
+            menu.style.left = '0%';
+            menubtn.style.right = '100%';
+            rotatebtn.style.right = '100%';
+            znads.style.right = '100%';
+            breznads.style.right = '100%';
+            podboj.style.right = '100%';
+            brezpodboja.style.right = '100%';
+
+        }, false );
+
+        closebtn.addEventListener( 'click', () => {
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }, false );
+
+        let e = 0;
+
+        rotatebtn.addEventListener( 'click', () => {
+
+            e = e ? 0 : 1;
+
+            vrata.changeView( e );
+
+        }, false );
+
+        // BARVE
+
+        function ChangeColor( element ) {
+
+            let id = element.id;
+
+            vrata.changeBarva( id );
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }
+
+        function ChangeKluka( element ) {
+
+            let id = element.classList[1];
+
+            vrata.changeKluka( id );
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }
+
+        function ChangeNads( element ) {
+
+            vrata.changeNads( element );
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }
+
+        function ChangePodboj( element ) {
+
+            vrata.changePodboj( element );
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }
+
+        function ChangeKukalo( element ) {
+
+            vrata.changeKukalo( element );
+
+            menu.style.left = '100%';
+            rotatebtn.style.right = '0%';
+            menubtn.style.right = '0%';
+            znads.style.right = '0%';
+            breznads.style.right = '0%';
+            podboj.style.right = '0%';
+            brezpodboja.style.right = '0%';
+
+        }
+
+    </script>
+
 </body>
 </html>
